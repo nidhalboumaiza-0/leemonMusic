@@ -18,12 +18,34 @@ A Node.js REST API for a music platform. It organizes songs into albums and cate
 
 ## Run Locally
 
-```bash
-npm install
-npm start
-```
+1. Install Node.js 18 or newer and start MongoDB locally, or prepare a MongoDB Atlas connection.
+2. Open a terminal in the repository root and install dependencies:
 
-Create a local environment file with the database, authentication, and email settings required by the server. Do not commit production credentials.
+   ```bash
+   npm install
+   ```
+
+3. The server loads `config.env`, so create or update that file with development values:
+
+   ```dotenv
+   NODE_ENV=development
+   PORT=3000
+   DATABASE=mongodb://127.0.0.1:27017/leemon_music
+   JWT_SECRET=replace-with-a-long-random-value
+   JWT_EXPIRE_IN=1d
+   EmailMailer=your-development-email
+   EmailPassword=your-email-app-password
+   ```
+
+4. Start the API:
+
+   ```bash
+   npm start
+   ```
+
+5. Keep the terminal open and call the API through `http://localhost:3000` unless `PORT` was changed.
+
+Do not commit real database, authentication, or email credentials.
 
 ## Structure
 
